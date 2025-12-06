@@ -24,6 +24,9 @@ const coloresConfeti = [
   "rgba(255, 255, 255, 1)",
 ];
 
+
+const imagenFondo = new Image();
+imagenFondo.src = 'recursos/junior.jpg';
 //
 // 2. Crear Confeti
 //
@@ -44,8 +47,14 @@ function crearConfeti() {
 // 3. Dibujar y Mover Confeti
 //
 function animarConfeti() {
-  ctxConfeti.fillStyle = "rgba(255, 182, 193, 1)"; // Fondo Rosa Pastel
-  ctxConfeti.fillRect(0, 0, ancho, alto);
+  if (imagenFondo.complete) {
+      // Dibuja la imagen cubriendo todo el canvas
+      ctxConfeti.drawImage(imagenFondo, 0, 0, ancho, alto);
+  } else {
+      // Si la imagen aún no carga, usa un color sólido de fondo
+      ctxConfeti.fillStyle = "rgb(255, 230, 235)"; // Color de fallback
+      ctxConfeti.fillRect(0, 0, ancho, alto);
+  }
 
   for (let i = 0; i < confetis.length; i++) {
     let confetiActual = confetis[i];
@@ -80,4 +89,4 @@ crearConfeti();
 // Esperar 1 segundo antes de iniciar el confeti
 setTimeout(() => {
   animarConfeti();
-}, 1500);
+}, 0);
