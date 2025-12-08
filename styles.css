@@ -405,9 +405,9 @@ body {
 .happy-birthday {
     position: absolute;
     top: -150px; 
-    left: 10%;
+    left: 5%;
     transform: translateX(-50%);
-    font-family: 'Pacifico', cursive; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
     font-size: 40px;
     color: #000000; 
     user-select: none;
